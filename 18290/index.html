@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CMU 18290 Examples</title>
+  <link rel="stylesheet" href="jqcss.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="jquery.localscroll.js"></script>
+  <script src="jquery.scrollTo.js"></script>
+  <script>
+  $(document).ready(function() {
+         $.localScroll({duration:800});
+    });
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true,
+      heightStyle: "content",
+      active: false
+    });
+    $( "#accordion1" ).accordion({
+      collapsible: true,
+      heightStyle: "content",
+      active: false,
+      //event: "mouseover"
+    });
+    $( "#accordion2" ).accordion({
+      collapsible: true,
+      heightStyle: "content",
+      active: false
+    });
+    $( "#accordion3" ).accordion({
+      collapsible: true,
+      heightStyle: "content",
+      active: false
+    });
+  });
+  </script>
+
+</head>
+<body>
+    <div id="navbar">
+        <ul>
+            <li><a href="#SA">Sampling and Aliasing</a></li>
+            <li><a href="#convolution">Convolution</a></li>
+            <li><a href="#Fourier">Fourier Transform</a></li>
+            <li><a href="#Control">Control Systems</a></li>
+        </ul>
+    </div>
+    <div id="title">
+      <header>
+          <h2>CMU 18-290 Examples</h2>
+      </header>
+  </div>
+<div id="accordion2" class="accordion3">
+  <h3 id="SA">Sampling and Aliasing: Notes from Other Universities</h3>
+  <div>
+      <nav>
+        <ul>
+            <!-- <li><a href="pass/index.html">test</a></li> -->
+            <li><a href="http://redwood.berkeley.edu/bruno/npb261/aliasing.pdf">University of California, Berkeley</a></li>
+            <li><a href="http://www.princeton.edu/~achaney/tmve/wiki100k/docs/Nyquist%E2%80%93Shannon_sampling_theorem.html">Princeton University</a></li>
+            <li><a href="http://www2.egr.uh.edu/~glover/applets/Sampling/Sampling.html">University of Houston</a></li>
+            <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/lecture-notes/MITRES_6_007S11_lec16.pdf">MIT</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Sampling and Aliasing: Videos</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=0AywHcE4AeA">Youtube Video 1</a></li>
+            <li><a href="https://www.youtube.com/watch?v=PlVnW2kv4tE">Youtube Video 2</a></li>
+            <li><a href="http://ia600706.us.archive.org/9/items/MITRES.6.007S11/MITRES_6-007S11lec16_300k.mp4">MIT</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Sampling and Aliasing: Applications</h3>
+  <div>
+      <nav>
+        <ul>
+            <li>Analog-Digital Audio Conversion
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/Audio_compression_(data)#Audio">Audio Compression Wikipedia</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=E2O_tWLE1C0">Youtube Video</a></li>
+                    <li><a href="http://www.mstarlabs.com/dsp/antialiasing/antial.html">Antialiasing Webpage</a></li>
+                </ul>
+            </li>
+            <li>Speech Recognition
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/Speech_recognition">Speech Recognition Wikipedia</a></li>
+                    <li><a href="http://www.dtic.mil/cgi-bin/GetTRDoc?AD=ADA310308">Speech Recognition Algorithms</a></li>
+                </ul>
+            </li>
+            <li>Strobing
+                <ul>
+                    <li><a href="http://www.youtube.com/watch?v=uENITui5_jU">Water Strobing 1</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=OtxlQTmx1LE">Water Strobing 2</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=rvY7NGncCgU">Water Strobing 3</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=mODqQvlrgIQ">Water Strobing 4</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=ZjFcXq3cqVI">Rope Strobe</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=D27TJVIeWi0">Fan Strobe</a></li>
+                </ul>
+            </li>
+            <li>Medicine
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/Sampling_(medicine)">Sampling in Medicine</a></li>
+                </ul>
+            </li>
+            <li>Graphical Antialiasing
+                <ul>
+                    <li><a href="http://en.wikipedia.org/wiki/Spatial_anti-aliasing">Spatial Anti-Aliasing</a></li>
+                    <li><a href="http://cs.brown.edu/courses/cs123/lectures/06_Image_Processing_II.pdf ">Brown University Lecture on Anti-Aliasing</a></li>
+                    <li><a href="http://www.youtube.com/watch?v=eclWrHLUcOs">Video Game Example of Anti-Aliasing</a></li>
+                </ul>
+            </li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Sampling and Aliasing: Example Problems and Answers</h3>
+  <div>
+      <nav>
+        <ul>
+            <li>Georgia Tech
+                <ul>
+                    <li><a href="http://users.ece.gatech.edu/~bonnie/book/worked_problems/Chap5_sampling.pdf">Problems</a></li>
+                    <li><a href="http://users.ece.gatech.edu/~bonnie/book/worked_problems/Chap5_sampling_sol.pdf">Solutions</a></li>
+                </ul>
+            </li>
+            <li>MIT Continuous Time Sampling
+                <ul>
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw16.pdf">Problems</a></li>
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw16_sol.pdf">Solutions</a></li>
+                </ul>
+            </li>
+            <li>MIT Discrete Time Sampling
+                <ul>
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw19.pdf">Problems</a></li>
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw19_sol.pdf">Solutions</a></li>
+                </ul>
+            </li>
+            <li>Discrete Time Processing of Continuous Time Signals
+                <ul>
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw18.pdf">Problems</a></li>
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw18_sol.pdf">Solutions</a></li>
+                </ul>
+            </li>
+        </ul>
+      </nav>
+  </div>
+</div>
+
+<a id="convolution"></a>
+<div id="accordion">
+  <h3>Convolution: Matlab Examples</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="canny/canny.html">Canny Edge Detection</a></li>
+            <li><a href="antialias/antialias.html">Image Sampling and Aliasing</a></li>
+            <li><a href="AM/html/AM.html">Amplitude Modulation</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Convolution: Examples from Other Universities</h3>
+  <div>
+      <nav>
+            <ul>
+                <li><a rel="external" href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/lecture-notes/MITRES_6_007S11_lec04.pdf">MIT</a></li>
+                <li><a rel="external" href="http://isites.harvard.edu/fs/docs/icb.topic133182.files/3-lti.pdf">Harvard</a></li>
+                <li><a rel="external" href="convFiles/conv_properties.pdf">University of Michigan</a></li>
+                <li><a rel="external" href="http://www.comm.utoronto.ca/~dkundur/course_info/discrete-time-systems/notes/Kundur_DTS_Chap2.pdf">University of Toronto</a></li>
+                <li><a rel="external" href="convFiles/ConvolutionExpSequences.pdf">University of Texas</a></li>
+                <li><a rel="external" href="https://engineering.purdue.edu/VISE/ee438/demos/flash/convolution.html">Purdue University</a></li>
+            </ul>
+      </nav>
+  </div>
+  <h3>Convolution: Videos</h3>
+  <div>
+    <nav>
+        <ul>
+            <li><a rel="external" href="http://www.youtube.com/watch?v=IW4Reburjpc">Example 1</a></li>
+            <li><a rel="external" href="https://www.youtube.com/watch?v=4-FS5GN_vFE">Example 2</a></li>
+            <li><a rel="external" href="http://www.youtube.com/watch?v=_vyke3vF4Nk">Lecture from MIT</a></li>
+            <li><a rel="external" href="http://www.youtube.com/watch?v=cOmkIsWfAcg">Tau Example</a></li>
+        </ul>
+    </nav>
+  </div>
+  <h3>Convolution: Visual Aids</h3>
+  <div>
+    <nav>
+        <ul>
+            <li><a rel="external" href="http://www.jhu.edu/signals/discreteconv2/index.html">Discrete Time Convolution</a></li>
+            <li><a rel="external" href="http://www.jhu.edu/~signals/convolve/index.html">Continuous Time Convolution</a></li>
+            <li><a rel="external" href="http://www.imageprocessingbasics.com/image-convolution-filters/">Image Processing</a></li>
+        </ul>
+    </nav>
+  </div>
+  <h3>Convolution: Problem Sets and Solutions</h3>
+  <div>
+    <nav>
+        <ul>
+            <li>Georgia Tech Continuous Time Convolution Problems
+                <ul>
+                    <li><a rel="external" href="http://users.ece.gatech.edu/~bonnie/book/worked_problems/Chap3_cont_time_conv.pdf">Problems</a></li>
+                    <li><a rel="external" href="http://users.ece.gatech.edu/~bonnie/book/worked_problems/Chap3_cont_time_conv_sol.pdf">Solutions</a></li>
+                </ul>
+            </li>
+            <li>Georgia Tech Discrete Time Convolution Problems
+                <ul>
+                    <li><a rel="external" href="http://users.ece.gatech.edu/~bonnie/book/worked_problems/Chap3_disc_conv.pdf">Problems</a></li>
+                    <li><a rel="external" href="http://users.ece.gatech.edu/~bonnie/book/worked_problems/Chap3_disc_conv_sol.pdf">Solutions</a></li>
+                </ul>
+            </li>
+            <li>MIT Convolution Problem Set
+                <ul>
+                    <li><a rel="external" href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw04.pdf">Problems</a></li>
+                    <li><a rel="external" href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw04_sol.pdf">Solutions</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+  </div>
+  <h3>Convolution: Applications</h3>
+  <div>
+      <nav>
+          <ul>
+              <li> Image Processing
+                  <ul>
+                      <li><a rel="external" href="http://en.wikipedia.org/wiki/Kernel_(image_processing)#Convolution">Wikipedia</a></li>
+                      <li><a rel="external" href="http://www.imageprocessingbasics.com/image-convolution-filters/">Applet</a></li>
+                  </ul>
+              </li>
+              <li><a rel="external" href="http://en.wikipedia.org/wiki/Convolution#Applications">Other Applications</a></li>
+          </ul>
+      </nav>
+  </div>
+</div>
+ 
+<a name="Fourier"></a>
+<div id="accordion1" class="accordion2">
+  <h3>Fourier Transform: Program Examples</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="fftapplet/fftapplet.html">Fourier Transform Applet</a></li>
+            <li><a href="square/square.html">Fourier Series Summation</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Fourier Transform: Educational</h3>
+  <div>
+      <nav>
+        <ul>
+            <li>
+                <ul>MIT
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/lecture-notes/MITRES_6_007S11_lec08.pdf">Continuous Time FT</a></li>
+                    <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/lecture-notes/MITRES_6_007S11_lec11.pdf">Discrete Time FT</a></li>
+                </ul>
+                <ul>Harvard University
+                    <li><a href=""></a></li>
+                    <li><a href="http://isites.harvard.edu/fs/docs/icb.topic133182.files/8-ft.pdf">Continuous Time FT</a></li>
+                    <li><a href="http://isites.harvard.edu/fs/docs/icb.topic133182.files/9-dtft.pdf">Discrete Time FT</a></li>
+                </ul>
+                <ul>University of Michigan
+                    <li><a href="http://web.eecs.umich.edu/~aey/eecs216/lectures/pdffiles/cft.pdf">Continuous Time FT</a></li>
+                    <li><a href="http://web.eecs.umich.edu/~aey/eecs216/lectures/pdffiles/dtft.pdf">Discrete Time FT</a></li>
+                </ul>
+            </li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Fourier Transform: Examples</h3>
+  <div>
+      <nav>
+        <ul>
+             <li><a href="http://www.astro.umd.edu/~lgm/ASTR410/ft_ref2.pdf">University of Maryland</a></li> 
+             <li><a href="http://www.math.fsu.edu/~bellenot/class/f09/fun/ft.pdf">Florida State University</a></li>
+             <li><a href="http://www.engr.uconn.edu/~lanbo/G377FFTYC.pdf">University of Connecticut (Fourier Series and Transform)</a></li>
+             <li><a href="http://www.usciences.edu/~lvas/MathMethods/Fourier.pdf">University of the Sciences (Fourier Series and Transform)</a></li>
+             <li><a href="http://www.southalabama.edu/engineering/ece/faculty/akhan/Courses/EE321-spring-06)/Lecture%20notes/lecture--fourier%20transform.pdf">University of South Alabama</a></li>
+             <li><a href="http://www.phys.hawaii.edu/~jgl/p274/fourier_intro_Shatkay.pdf">University of Hawaii</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Fourier Series: Videos</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="http://www.youtube.com/watch?v=nXEqrOt-nB8">Computing Fourier Series</a></li>
+            <li><a href="http://www.youtube.com/watch?v=U8riFeiiu3s">Indian Institute of Technology Madras</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Fourier Transform: Videos</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="http://www.youtube.com/watch?v=1JnayXHhjlg">Introduction to the Fourier Transform</a></li>
+            <li><a href="http://www.youtube.com/watch?v=sCCLrSGPmhE">Another Fourier Transform Explanation</a></li>
+            <li><a href="http://www.youtube.com/watch?v=6DDpjBTFnd0">Darryl Morrell: Introduction to the Discrete Time Fourier Transform</a></li>
+            <li><a href="http://www.youtube.com/watch?v=QWgenKVO7Kw">Darryl Morrell: Introduction to the Continuous Time Fourier Transform</a></li>
+            <li><a href="http://www.youtube.com/watch?v=8JKb9UN6W4c">Darryl Morrell: Rectangle Wave Fourier Transform</a></li>
+            <li><a href="https://www.youtube.com/watch?v=D1WF9YKqf3o">MIT Lecture</a></li>
+            <li><a href="https://www.youtube.com/watch?v=mdFETbe1n5Q">Stanford Lecture</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Fourier Transform: Applications</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="http://homepages.inf.ed.ac.uk/rbf/HIPR2/fourier.htm">Image Processing</a></li>
+            <li><a href="http://www.thefouriertransform.com/applications/filtering.php">Signal Processing 1</a></li>
+            <li><a href="http://www.thefouriertransform.com/applications/frequencyfilter.php">Signal Processing 2</a></li>
+            <li><a href="http://www.thefouriertransform.com/applications/differentialequations.php">Solving Ordinary Differential Equations</a></li>
+            <li><a href="http://www.thefouriertransform.com/applications/radiation.php">Far Field Radiation</a></li> 
+            <li><a href="http://www.thefouriertransform.com/applications/diffraction.php">Light Diffraction, Interference, and Young's Experiment</a></li>
+        </ul>
+      </nav>
+  </div>
+</div>
+
+<a name="Control"></a>
+<div id="accordion3" class="accordion4">
+  <h3>Control Systems: Lecture Notes</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="http://isites.harvard.edu/fs/docs/icb.topic133182.files/16-feedback.pdf">Harvard</a></li>
+            <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/lecture-notes/MITRES_6_007S11_lec25.pdf">MIT Lecture 25</a></li>
+            <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/lecture-notes/MITRES_6_007S11_lec26.pdf">MIT Lecture 26</a></li>
+            <li><a href="http://web.eecs.umich.edu/~aey/eecs216/lectures/pdffiles/feed.pdf">University of Michigan</a></li>
+            <li><a href="http://claymore.engineer.gvsu.edu/~jackh/books/model/chapters/feedback.pdf">Grand Valley State University</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Control Systems: Videos</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="http://www.youtube.com/watch?feature=player_embedded&v=S7MG1hgn0dY">MIT Video 1</a></li>
+            <li><a href="http://www.youtube.com/watch?feature=player_embedded&v=D3bblng-Kcc">MIT Video 2</a></li>
+        </ul>
+      </nav>
+  </div>
+  <h3>Control Systems: Problems and Answers</h3>
+  <div>
+      <nav>
+        <ul>
+            <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw25.pdf">MIT Problem Set 1</a></li>
+            <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw25_sol.pdf">MIT Answers 1</a></li>
+            <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw26.pdf">MIT Problem Set 2</a></li>
+            <li><a href="http://ocw.mit.edu/resources/res-6-007-signals-and-systems-spring-2011/assignments/MITRES_6_007S11_hw26_sol.pdf">MIT Answers 2</a></li>
+        </ul>
+      </nav>
+  </div>
+</div>
+
+<script>
+$(".accordion").tabs(".pane", {tabs: '> h2', effect: 'slide', initialIndex: null});
+ 
+//The click to hide function
+$(".accordion > h2").click(function(){
+ if($(this).hasClass("current") && $(this).next().queue().length == 0){
+  $(this).next().slideUp();
+  $(this).removeClass("current");
+ }else if(!$(this).hasClass("current") && $(this).next().queue().length == 0){
+  $(this).next().slideDown();
+  $(this).addClass("current");
+ }
+});
+</script>
+ 
+</body>
+</html>

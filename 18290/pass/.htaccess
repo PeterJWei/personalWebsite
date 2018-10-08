@@ -1,0 +1,4 @@
+AuthName "CMU Students"
+AuthType Basic
+AuthUserFile /afs/andrew.cmu.edu/usr4/pwei/www/pass/.htpasswd
+require valid-user

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link rel = "stylesheet" type = "text/css" href = "../mcss.css">
+    <div id = "title">
+        <header>
+            <h2>Canny Edge Detection</h2>
+        </header>
+    </div>
+<div id="head">
+    Matlab Source Code
+</div>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>edgeDetect</title><meta name="generator" content="MATLAB 7.14"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2013-07-10"><meta name="DC.source" content="edgeDetect.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+
+  </style></head><body>
+
+<div class="content"><pre class="codeinput">im = imread(<span class="string">'everest.jpg'</span>);
+im = rgb2gray(im);
+Nx1=10;
+Sigmax1=100;
+Nx2=10;
+Sigmax2=100;
+Theta1=pi/2;
+
+Ny1=10;
+Sigmay1=100;
+Ny2=10;
+Sigmay2=100;
+Theta2=0;
+
+alfa=0.1;
+
+subplot(4, 1, 1);
+imshow(im);
+filterx=d2dgauss(Nx1,Sigmax1,Nx2,Sigmax2,Theta1);
+Ix= convn(im,filterx,<span class="string">'same'</span>);
+subplot(4, 1, 2);
+imshow(Ix);
+
+filtery = d2dgauss(Ny1, Sigmay1, Ny2, Sigmay2, Theta2);
+Iy = convn(im, filtery, <span class="string">'same'</span>);
+subplot(4, 1, 3);
+imshow(Iy);
+
+subplot(4, 1, 4);
+Norm = sqrt(sqrt(Ix.*Ix.*Ix.*Ix + Iy.*Iy.*Iy.*Iy))/100;
+Norm = imcomplement(Norm);
+[m, n] = size(Norm);
+<span class="keyword">for</span> i = 1:m
+    <span class="keyword">for</span> j = 1:n
+        <span class="keyword">if</span> Norm(i, j) &gt; .3
+            Norm(i, j) = 1;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+imshow(Norm);
+</pre><pre class="codeoutput">
+
+<p class="ex2">Original Image</p>
+</pre><img class = "zero" height = "250" width = "600" vspace="5" hspace="5" src="Capture0.PNG" alt=""> <p class="footer"><br>
+<p class="ex2">Y-Directional Detection</p>
+</pre><img class = "zero" height = "250" width = "600" vspace="5" hspace="5" src="Capture1.PNG" alt=""> <p class="footer"><br>
+<p class="ex2">X-Directional Detection</p>
+</pre><img class = "zero" height = "250" width = "600" vspace="5" hspace="5" src="Capture2.PNG" alt=""> <p class="footer"><br>
+<p class="ex2">X and Y Combined</p>
+</pre><img class = "zero" height = "250" width = "600" vspace="5" hspace="5" src="Capture3.PNG" alt=""> <p class="footer"><br>
+      Published with MATLAB&reg; 7.14<br></p></div><!--
+##### SOURCE BEGIN #####
+im = imread('everest.jpg');
+im = rgb2gray(im);
+Nx1=10;
+Sigmax1=100;
+Nx2=10;
+Sigmax2=100;
+Theta1=pi/2;
+
+Ny1=10;
+Sigmay1=100;
+Ny2=10;
+Sigmay2=100;
+Theta2=0;
+
+alfa=0.1;
+
+subplot(4, 1, 1);
+imshow(im);
+filterx=d2dgauss(Nx1,Sigmax1,Nx2,Sigmax2,Theta1);
+Ix= convn(im,filterx,'same');
+subplot(4, 1, 2);
+imshow(Ix);
+
+filtery = d2dgauss(Ny1, Sigmay1, Ny2, Sigmay2, Theta2);
+Iy = convn(im, filtery, 'same');
+subplot(4, 1, 3);
+imshow(Iy);
+
+subplot(4, 1, 4);
+Norm = sqrt(sqrt(Ix.*Ix.*Ix.*Ix + Iy.*Iy.*Iy.*Iy))/100;
+Norm = imcomplement(Norm);
+[m, n] = size(Norm);
+m
+n
+for i = 1:m
+    for j = 1:n
+        if Norm(i, j) > .3
+            Norm(i, j) = 1;
+        end
+    end
+end
+
+imshow(Norm);
+
+
+##### SOURCE END #####
+</body></html>
